@@ -24,7 +24,7 @@ const propertySchema = new mongoose.Schema(
 			type: Number,
 			required: true,
 		},
-		image: {
+		image1: {
 			type: String,
 			default: '../imgs/image.png'
 		},
