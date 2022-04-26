@@ -28,7 +28,7 @@ const propertySchema = new mongoose.Schema(
 			type: String,
 			default: '../imgs/image.png'
 		},
-		amentities: {
+		amenities: {
 			type: Array,
 		},
 		owner: {

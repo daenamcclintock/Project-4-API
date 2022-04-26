@@ -62,9 +62,10 @@ router.get('/properties/mine', requireToken, (req, res, next) => {
 
 // SHOW - Route for property show page
 // GET /properties/5a7db6c74d55bc51bdf39793
-router.get('/properties/:id', requireToken, (req, res, next) => {
+router.get('/properties/:id', (req, res, next) => {
 	// req.params.id will be set based on the `:id` in the route
 	Property.findById(req.params.id)
+		.populate('owner')
 		.then(handle404)
 		// if `findById` is succesful, respond with 200 and "property" JSON
 		.then((property) => res.status(200).json({ property: property.toObject() }))

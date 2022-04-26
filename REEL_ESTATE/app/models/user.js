@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const messageSchema = require('./messages')
+
 const userSchema = new mongoose.Schema(
 	{
 		firstName: {
@@ -17,6 +19,7 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		messages: [messageSchema],
 		token: String,
 	},
 	{
