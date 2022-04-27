@@ -3,6 +3,7 @@ const express = require('express')
 const passport = require('passport')
 const Property = require('../models/property')
 const customErrors = require('../../lib/custom_errors')
+const User = require('../models/user')
 
 const handle404 = customErrors.handle404
 const requireOwnership = customErrors.requireOwnership
@@ -26,11 +27,12 @@ router.post('/messages/:propertyId', (req, res, next) => {
         .then(property => {
             console.log('this is the property', property)
             console.log('this is the message', message)
-            // push the message to the property
-            property.message.push(message)
-            // save the property
-            return property.save()
-        .then(property => res.status(201).json({ property: property }))
+            User.findById(property.owner._id)
+                .then(user => {
+                    user.messages.push(message)
+                    return user.save()
+                })
+        .then(user => res.status(201).json({ user: user }))
         .catch(next)
         })
 })
