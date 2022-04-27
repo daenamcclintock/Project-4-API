@@ -30,6 +30,8 @@ router.post('/messages/:propertyId', (req, res, next) => {
             property.message.push(message)
             // save the property
             return property.save()
+        .then(property => res.status(201).json({ property: property }))
+        .catch(next)
         })
 })
 
