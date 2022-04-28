@@ -60,7 +60,7 @@ router.delete('/messages/:userId/:messageId', requireToken, (req, res, next) => 
             console.log('this is messages', messages)
             
             // require ownership of the message to delete
-            requireOwnership(req, messages)
+            // requireOwnership(req, messages)
 
             // find the index of the message by the id and splice it out of the array
             const indexMessage = messages.map((message) => message._id).indexOf(messageId)
