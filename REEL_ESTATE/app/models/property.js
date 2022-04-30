@@ -28,6 +28,22 @@ const propertySchema = new mongoose.Schema(
 			type: String,
 			default: '../imgs/image.png'
 		},
+		image2: {
+			type: String,
+			default: '../imgs/image.png'
+		},
+		image3: {
+			type: String,
+			default: '../imgs/image.png'
+		},
+		image4: {
+			type: String,
+			default: '../imgs/image.png'
+		},
+		image5: {
+			type: String,
+			default: '../imgs/image.png'
+		},
 		amenities: {
 			type: Array,
 		},
