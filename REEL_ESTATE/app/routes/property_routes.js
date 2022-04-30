@@ -77,12 +77,7 @@ router.get('/properties/:id', (req, res, next) => {
 // POST /properties
 router.post('/properties', requireToken, (req, res, next) => {
 	// set owner of new property to be current user
-	console.log(req.body.properties.owner)
-	console.log(req.user.id)
 	req.body.properties.owner = req.user.id
-	console.log('THIS IS REQBODY', req.body)
-	console.log('THIS IS REQBODY properties', req.body.properties)
-	console.log('THIS IS REQBODY properties owner', req.body.properties.owner)
 
 	Property.create(req.body.properties)
 		// respond to succesful `create` with status 201 and JSON of new "property"
