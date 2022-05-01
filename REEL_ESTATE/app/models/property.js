@@ -47,6 +47,9 @@ const propertySchema = new mongoose.Schema(
 		amenities: {
 			type: Array,
 		},
+		description: {
+			type: String,
+		},
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
